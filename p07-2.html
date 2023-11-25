@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>WP2_演習7-2_配列で注文</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <h1>回転寿司店の注文システム</h1>
+  <div class="back">
+    <h2>メニュー</h2>
+    <div class="box-img">
+      <img src="img/sushi_akami.png" alt="まぐろのお寿司">
+      <img src="img/sushi_ebi.png" alt="えびのお寿司">
+      <img src="img/sushi_ikura.png" alt="いくらのお寿司">
+      <img src="img/sushi_hotate.png" alt="ホタテのお寿司">
+      <img src="img/sushi_tamago.png" alt="玉子のお寿司">
+    </div>
+    <div class="box-button">
+      <button onclick="order(0)">まぐろ</button>
+      <button onclick="order(1)">エビ</button>
+      <button onclick="order(2)">いくら</button>
+      <button onclick="order(3)">ホタテ</button>
+      <button onclick="order(4)">玉子</button>
+    </div>
+    <h2>提供待ち</h2> 
+    <div id="waiting">ご注文をどうぞ！</div>
+    <button id="button-serve" onclick="serve()">提供</button>
+    <span id="served"></span>
+  </div>
+  <div id="quotation">
+    画像出典：<a href="https://www.irasutoya.com/">いらすとや</a>
+  </div>
+
+  <script>
+    "use strict";
+    const menuAry = ["まぐろ", "エビ", "いくら", "ホタテ", "玉子"];
+    let waitingAry = [];
+
+    // 注文ボタン
+    function order(index) {
+      waitingAry.push(menuAry[index]);  // 末尾に追加
+      document.querySelector("#waiting").textContent = waitingAry.join(", ");
+      document.querySelector("#served").textContent = "";
+    }
+
+    // 提供ボタン
+    function serve() {
+      // 待ちなし状態で押された場合
+      if (waitingAry.length == 0) {
+        document.querySelector("#waiting").textContent = "ご注文をどうぞ！";
+        return document.querySelector("#served").textContent = "";
+      }
+
+      // 待ちありの場合 
+      const item = waitingAry.shift();  // 先頭から取る
+
+      if (waitingAry.length != 0) {
+        document.querySelector("#waiting").textContent = waitingAry.join(", ");
+        document.querySelector("#served").textContent = "へい！" + item + "お待ち！";
+      } else { // 残1→待ちがなくなった
+        document.querySelector("#waiting").textContent = "ご注文をどうぞ！";  
+        document.querySelector("#served").textContent = "へい！" + item + "お待ち！";
+      }
+    }
+  </script>
+</body>
+</html>
