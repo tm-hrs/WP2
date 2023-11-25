@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* p07-2 */
+
+body {
+  font-family: serif;
+  color: #43484F;
+}
+
+img {
+  width: 100px;
+  margin: 5px 15px;
+}
+
+button {
+  width: 110px;
+  height: 40px;
+  background-color: #E0D8D5;
+  border: 1px solid #43484F;
+  font-family: "HGP行書体", 'HG正楷書体-PRO', serif;
+  font-size: 1.5em;
+  margin: 5px 10px;
+}
+
+.back {
+  width: 700px;
+  border: 5px solid #43484F;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #43484F;
+  padding: 0 20px 30px 20px;
+}
+
+.box-img {
+  display: flex;
+  justify-content: center;
+}
+
+.box-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#waiting, #served {
+  font-size: 1.3em;
+  color: #000;
+}
+
+#waiting {
+  background-color: #d3d3ed;
+  margin: 10px 30px 20px 30px;
+  padding: 3px 10px;
+}
+
+#button-serve {
+  background-color: #50507C;
+  color: #fff;
+  font-family: serif;
+  border: none;
+  margin: 5px 30px;
+}
+
+#quotation {
+  margin: 30px 0 0 10px;
+}
+
+/* p07-2 */
